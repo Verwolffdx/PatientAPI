@@ -30,6 +30,11 @@ public class MainController {
     @Autowired
     RecordRepo recordRepo;
 
+    @GetMapping("/")
+    public String startPage() {
+        return "Hello";
+    }
+
     @PostMapping(path = "/patient", consumes = "application/json", produces = "application/json")
     public Record getPatient(@RequestBody Map<String, String> cardNumber) {
         return recordRepo.findByCardNumber(cardNumber.get("cardNumber"));
