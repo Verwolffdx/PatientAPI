@@ -22,7 +22,8 @@ import java.util.Map;
 @RestController
 public class MainController {
     private CompositeDisposable disposable = new CompositeDisposable();
-    private SiMedService siMedService = new SiMedService();;
+    private SiMedService siMedService = new SiMedService();
+    ;
     private int IDR;
     private String KEY;
     private int confirmStatus;
@@ -43,6 +44,28 @@ public class MainController {
     @GetMapping("/all-patients")
     public List<Record> getAllPatients() {
         return recordRepo.findAll();
+    }
+
+    @PostMapping(path = "/insert", consumes = "application/json", produces = "application/json")
+    public int insert(@RequestBody Map<String, String> record) {
+        try {
+            recordRepo.save(new Record(
+                    record.get("cardNumber"),
+                    record.get("patient_name"),
+                    record.get("record_date"),
+                    record.get("record_time"),
+                    record.get("phone_number"),
+                    Integer.parseInt(record.get("MEDORG_ID")),
+                    Integer.parseInt(record.get("DOCT_ID")),
+                    Integer.parseInt(record.get("BRA_ID")),
+                    Integer.parseInt(record.get("WORK_ID"))
+            ));
+            return 1;
+        } catch (Exception e) {
+            return 0;
+        }
+
+
     }
 
     @PostMapping(path = "/record", consumes = "application/json", produces = "application/json")
@@ -97,9 +120,6 @@ public class MainController {
                 System.out.println("RECORD FAILl");
             }
         });
-
-
-
 
 
         return confirmStatus;
