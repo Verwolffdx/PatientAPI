@@ -52,9 +52,12 @@ public class MainController {
             recordRepo.save(new Record(
                     record.get("cardNumber"),
                     record.get("patient_name"),
+                    record.get("patient_surname"),
+                    record.get("patient_patronymic"),
                     record.get("record_date"),
                     record.get("record_time"),
                     record.get("phone_number"),
+                    record.get("patient_age"),
                     Integer.parseInt(record.get("MEDORG_ID")),
                     Integer.parseInt(record.get("DOCT_ID")),
                     Integer.parseInt(record.get("BRA_ID")),
