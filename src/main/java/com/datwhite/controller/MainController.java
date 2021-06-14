@@ -50,7 +50,7 @@ public class MainController {
     public int insert(@RequestBody Map<String, String> record) {
         try {
             recordRepo.save(new Record(
-                    record.get("cardNumber"),
+                    record.get("card_number"),
                     record.get("patient_name"),
                     record.get("patient_surname"),
                     record.get("patient_patronymic"),
