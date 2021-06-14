@@ -38,7 +38,7 @@ public class MainController {
 
     @PostMapping(path = "/patient", consumes = "application/json", produces = "application/json")
     public Record getPatient(@RequestBody Map<String, String> cardNumber) {
-        return recordRepo.findByCardNumber(cardNumber.get("cardNumber"));
+        return recordRepo.findByCardNumber(cardNumber.get("card_number"));
     }
 
     @GetMapping("/all-patients")
