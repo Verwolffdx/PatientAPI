@@ -38,7 +38,7 @@ public class MainController {
 
     @PostMapping(path = "/patient", consumes = "application/json", produces = "application/json")
     public Record getPatient(@RequestBody Map<String, String> cardNumber) {
-        return recordRepo.findByCardNumber(cardNumber.get("cardNumber"));
+        return recordRepo.findByCardNumber(cardNumber.get("card_number"));
     }
 
     @GetMapping("/all-patients")
@@ -50,7 +50,7 @@ public class MainController {
     public int insert(@RequestBody Map<String, String> record) {
         try {
             recordRepo.save(new Record(
-                    record.get("cardNumber"),
+                    record.get("card_number"),
                     record.get("patient_name"),
                     record.get("patient_surname"),
                     record.get("patient_patronymic"),
