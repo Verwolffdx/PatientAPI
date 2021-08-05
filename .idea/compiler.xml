@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PatientAPI" />
+        <module name="PatientAPI-2.0" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="PatientAPI" options="-parameters -Xlint:unchecked" />
+      <module name="PatientAPI-2.0" options="-parameters -Xlint:unchecked" />
     </option>
   </component>
 </project>
